@@ -47,7 +47,7 @@
 ## 檔案格式
 
 - LLM 局：每局一個 `seedNNNN.json`，加上同名的 `seedNNNN.calls.jsonl.gz`（該局每一次 LLM 呼叫：prompt、raw 回覆、usage、延遲、finish_reason、供應者）。
-- 非 LLM 局：`seedsAAAAAA-BBBBBB.jsonl.gz`（**GitHub 版不放在 repo 裡**，10 萬局約 565 MB，請從 Releases 下載 `nonllm_selfplay_100k.tar.gz`，解壓到 repo 根目錄即可還原 `nonllm/q/`、`nonllm/dqn/`），一行一局，每行的結構與 LLM 的 `seedNNNN.json` 相同（沒有 calls 檔）。500 局一檔。檔名帶 `.partial` 的是停止時間到時沒跑滿 500 局的最後一批，裡面的局都是完整的。
+- 非 LLM 局：`seedsAAAAAA-BBBBBB.jsonl.gz`（**GitHub 版不放在 repo 裡**，10 萬局約 565 MB，請從 Releases 下載 `nonllm_selfplay_100k.tar`，解壓到 repo 根目錄即可還原 `nonllm/q/`、`nonllm/dqn/`），一行一局，每行的結構與 LLM 的 `seedNNNN.json` 相同（沒有 calls 檔）。500 局一檔。檔名帶 `.partial` 的是停止時間到時沒跑滿 500 局的最後一批，裡面的局都是完整的。
 - `stats.json`：以模型為第一層（`models.<model>.sources.<來源>.cells.<cell>`；來源 openrouter／hpc-vllm／cgi01-vllm／selfplay 只是統計上的分組，資料夾不分來源），每層都有局數、token、不實率、費用的合計。`MANIFEST.sha256`：每個檔的 sha256。
 
 ### 每局 JSON 的主要欄位
